@@ -1,0 +1,97 @@
+<mat-toolbar>
+    <span class="title">New Student</span>
+</mat-toolbar>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mat-elevation-z8">
+                    <div class="card-header">
+                        Enter the new student information
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]='studentForm' (ngSubmit)='onSubmit()'>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput type="text" formControlName="name">
+                                        <mat-error *ngIf="studentForm.hasError">Please provide the student name!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput type="text" formControlName="lastName">
+                                        <mat-error *ngIf="studentForm.hasError">Please provide the student last name!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Birthday</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="birthday">
+                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                        <mat-error *ngIf="studentForm.hasError">Please select student birthday!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Rank</mat-label>
+                                        <mat-select formControlName="rank">
+                                            <mat-option value="{{rank}}" *ngFor="let rank of ranks">{{rank}}</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="studentForm.hasError">Please select student rank!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Degree</mat-label>
+                                        <mat-select formControlName="degree">
+                                            <mat-option value=0>0</mat-option>
+                                            <mat-option value=1>I</mat-option>
+                                            <mat-option value=2>II</mat-option>
+                                            <mat-option value=3>III</mat-option>
+                                            <mat-option value=4>IIII</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="studentForm.hasError">Degree is required!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Class type</mat-label>
+                                        <mat-select formControlName="classType">
+                                            <mat-option value="ADULT">ADULT</mat-option>
+                                            <mat-option value="KIDS">KIDS</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="studentForm.hasError">Class is required!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Status</mat-label>
+                                        <mat-select formControlName="status">
+                                            <mat-option value="ACTIVE">ACTIVE</mat-option>
+                                            <mat-option value="INACTIVE">INACTIVE</mat-option>
+                                            <mat-option value="CANCELED">CANCELED</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="studentForm.hasError">Status is required!</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button type='submit' [disabled]='!studentForm.valid' class="form-control btn btn-danger">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

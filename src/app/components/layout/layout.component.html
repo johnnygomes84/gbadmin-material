@@ -24,17 +24,25 @@
                 </a>
             </mat-list-item>
             <mat-list-item>
-                <a class="nav-link">
+                <a class="nav-link" routerLink="/attendances">
+                    <i class="material-icons white-icon">
+                  calendar_month
+              </i>
+                    <span class="white-icon">Attendaces</span>
+                </a>
+            </mat-list-item>
+            <mat-list-item>
+                <a class="nav-link" routerLink="/tuitions">
                     <i class="material-icons white-icon">
                       euro
                   </i>
-                    <span class="white-icon">Tuition</span>
+                    <span class="white-icon">Tuitions</span>
                 </a>
             </mat-list-item>
         </mat-nav-list>
         <mat-nav-list class="nav-list admin-panel">
             <mat-list-item>
-                <a class="nav-link">
+                <a class="nav-link" routerLink="/users">
                     <i class="material-icons white-icon">
                   admin_panel_settings
               </i>
@@ -62,7 +70,7 @@
             </i>
         </button>
             <mat-menu #belowMenu="matMenu" yPosition="below">
-                <button mat-menu-item>
+                <button mat-menu-item (click)="logout()">
                 <a>
                     <i class="material-icons">
                         logout
