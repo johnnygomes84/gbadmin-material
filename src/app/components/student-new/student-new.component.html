@@ -50,11 +50,11 @@
                                     <mat-form-field class="full-width">
                                         <mat-label>Degree</mat-label>
                                         <mat-select formControlName="degree">
-                                            <mat-option value=0>0</mat-option>
-                                            <mat-option value=1>I</mat-option>
-                                            <mat-option value=2>II</mat-option>
-                                            <mat-option value=3>III</mat-option>
-                                            <mat-option value=4>IIII</mat-option>
+                                            <mat-option [value]=0>0</mat-option>
+                                            <mat-option [value]=1>I</mat-option>
+                                            <mat-option [value]=2>II</mat-option>
+                                            <mat-option [value]=3>III</mat-option>
+                                            <mat-option [value]=4>IIII</mat-option>
                                         </mat-select>
                                         <mat-error *ngIf="studentForm.hasError">Degree is required!</mat-error>
                                     </mat-form-field>
@@ -86,6 +86,9 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <button type='submit' [disabled]='!studentForm.valid' class="form-control btn btn-danger">Save</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button (click)="cancel()" class="form-control btn btn-dark">Cancel</button>
                                 </div>
                             </div>
                         </form>

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Student } from '../models/student.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,16 @@ export class StudentService {
     return this.http.get<Student[]>(this.url_base)
   }
 
-  createNewStudent(student: Student) {
+  getById(id: string) {
+    return this.http.get<Student>(`${this.url_base}/${id}`)
+  }
+
+  createOrUpdateStudent(student: Student) {
+    if(student.id) {
+      
+      return this.http.put<Student>(`${this.url_base}/${student.id}`, student)      
+    }
+    console.log("Saving")
     return this.http.post<Student>(this.url_base, student)
   }
 
@@ -23,7 +33,7 @@ export class StudentService {
     return this.http.put(this.url_base, student)
   }
 
-  deleteUserById(id: string) {
+  deleteUserById(id: string) {    
     return this.http.delete<void>(`${this.url_base}/${id}`)
   }
 

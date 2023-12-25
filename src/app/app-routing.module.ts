@@ -48,6 +48,10 @@ const routes: Routes = [
         component: StudentNewComponent
       },
       {
+        path: 'student-new/:id' ,
+        component: StudentNewComponent
+      },
+      {
         path: 'users',
         component: UsersComponent,
         canActivate: [adminGuard],

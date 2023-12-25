@@ -3,6 +3,7 @@ import { Student } from 'src/app/models/student.model';
 import { StudentService } from 'src/app/services/student.service';
 import {MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -18,7 +19,8 @@ export class StudentsComponent implements OnInit {
   
   dataSource: any  
 
-  constructor(private studentService: StudentService){}
+  constructor(private studentService: StudentService, private router: Router){}
+  closeResult: string;  
 
 
   ngOnInit(): void {
@@ -30,6 +32,20 @@ export class StudentsComponent implements OnInit {
       this.dataSource = this.dataSource = new MatTableDataSource<Student>(data);
       this.dataSource.paginator = this.paginator;
     })
+  }
+
+  deleteStudent(student: Student) {
+    console.log(JSON.stringify(student));
+    
+
+    if(confirm(`Are you sure you want to delete student: ${student.name} ${student.lastName}?`)) {
+      if (student.id) {        
+        this.studentService.deleteUserById(student.id).subscribe(()=> {
+          this.getStudents()          
+        }) 
+      }
+    }
+
   }
   
 }
