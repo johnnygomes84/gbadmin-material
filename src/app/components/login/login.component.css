@@ -1,6 +1,7 @@
 .ftco-section {
     background-color: #747474;
     height: 100vh;
+    padding: 10em 0;
 }
 
 .img {
@@ -26,4 +27,47 @@
 
 .login-field {
     width: 100%;
+}
+
+.wrap {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+}
+
+.img,
+.login-wrap {
+    width: 50%;
+}
+
+.login-wrap {
+    position: relative;
+    background: #fff h3;
+}
+
+.img,
+.login-wrap {
+    width: 50%;
+}
+
+@media (max-width: 991.98px) {
+    .img,
+    .login-wrap {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .wrap .img {
+        height: 250px;
+    }
+}
+
+.login-wrap {
+    position: relative;
+    background: #fff h3;
 }

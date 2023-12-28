@@ -33,20 +33,15 @@ export class StudentsComponent implements OnInit {
 
   getStudents() {
     
-    this.studentService.getStudents(this.pageIndex, this.pageSize).subscribe({
-      next: (data) => {
+    this.studentService.getStudents(this.pageIndex, this.pageSize).subscribe(data => {
         
         this.length = data.totalElements      
         this.dataSource.data = data.content                           
       
-    }})
-    return event
+    })
   }
 
   deleteStudent(student: Student) {
-    console.log(JSON.stringify(student));
-    
-
     if(confirm(`Are you sure you want to delete student: ${student.name} ${student.lastName}?`)) {
       if (student.id) {        
         this.studentService.deleteUserById(student.id).subscribe(()=> {
