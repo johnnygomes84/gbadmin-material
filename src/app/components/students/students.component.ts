@@ -12,15 +12,19 @@ import { Router } from '@angular/router';
 })
 export class StudentsComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+  
   pageEvent: PageEvent;
   
   displayedColumns: string[] = ['studentNumber','name', 'lastName', 'rank', 'degree', 'status', 'actions'];
   
-  dataSource: any  
+  dataSource = new MatTableDataSource<Student>([]);  
+  pageIndex = 0
+  pageSize = 5
+  length:number
 
   constructor(private studentService: StudentService, private router: Router){}
-  closeResult: string;  
 
 
   ngOnInit(): void {
@@ -28,10 +32,15 @@ export class StudentsComponent implements OnInit {
   }
 
   getStudents() {
-    this.studentService.getStudents().subscribe(data => {
-      this.dataSource = this.dataSource = new MatTableDataSource<Student>(data);
-      this.dataSource.paginator = this.paginator;
-    })
+    
+    this.studentService.getStudents(this.pageIndex, this.pageSize).subscribe({
+      next: (data) => {
+        
+        this.length = data.totalElements      
+        this.dataSource.data = data.content                           
+      
+    }})
+    return event
   }
 
   deleteStudent(student: Student) {
@@ -47,5 +56,11 @@ export class StudentsComponent implements OnInit {
     }
 
   }
+
+  pageChangeEvent(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getStudents();
+}
   
 }

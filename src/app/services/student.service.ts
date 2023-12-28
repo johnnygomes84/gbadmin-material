@@ -2,18 +2,22 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Student } from '../models/student.model';
 import { Observable } from 'rxjs';
+import { PageResponse } from '../models/page.response.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  url_base = "http://localhost:3001/student"
+  url_base = "http://localhost:8080/api/student"
 
   constructor(private http: HttpClient ) { }
 
-  getStudents(){
-    return this.http.get<Student[]>(this.url_base)
+  getStudents(page?: number, size?: number){
+    const params = new HttpParams()
+    .set('page', page ? page : 0)
+    .set('size', size ? size : 5)
+    return this.http.get<PageResponse>(`${this.url_base}/all`, {params})
   }
 
   getById(id: string) {
@@ -23,10 +27,9 @@ export class StudentService {
   createOrUpdateStudent(student: Student) {
     if(student.id) {
       
-      return this.http.put<Student>(`${this.url_base}/${student.id}`, student)      
+      return this.http.put<Student>(`${this.url_base}/update/${student.id}`, student)      
     }
-    console.log("Saving")
-    return this.http.post<Student>(this.url_base, student)
+    return this.http.post<Student>(`${this.url_base}/new`, student)
   }
 
   updateStudent(student: Student) {
@@ -34,7 +37,7 @@ export class StudentService {
   }
 
   deleteUserById(id: string) {    
-    return this.http.delete<void>(`${this.url_base}/${id}`)
+    return this.http.delete<void>(`${this.url_base}/delete/${id}`)
   }
 
 }
