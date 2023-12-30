@@ -27,11 +27,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { AttendancesComponent } from './components/attendances/attendances.component';
 import { UsersComponent } from './components/users/users.component';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StudentNewComponent } from './components/student-new/student-new.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserNewComponent } from './components/user-new/user-new.component';
+import { ApiInterceptorService } from './services/shared/api-interceptor.service';
+import { StudentService } from './services/student.service';
+import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +52,7 @@ import { MatSelectModule } from '@angular/material/select';
     UsersComponent,
     NotAuthorizedComponent,
     StudentNewComponent,
+    UserNewComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +76,17 @@ import { MatSelectModule } from '@angular/material/select';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    StudentService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true
+    }
+ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

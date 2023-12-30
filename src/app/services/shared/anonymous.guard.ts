@@ -7,8 +7,7 @@ export const anonymousGuard: CanActivateFn = (route, state) => {
   const token = localStorage.getItem('token');
   if(token) {
     router.navigate(['']);
-    return false;
-    
+    return false;    
   }
   return true
 };
