@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode'
+import { TokenDecode } from 'src/app/models/token.decode.model';
 
 @Component({
   selector: 'app-layout',
@@ -13,6 +14,12 @@ import { Router } from '@angular/router';
 export class LayoutComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
+  token: any = sessionStorage.getItem('token')
+  tokenDecode: TokenDecode = jwtDecode(this.token)
+  userInfo = this.tokenDecode.userinfo.fullName
+  
+
+   
   constructor(private router: Router){}
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -22,7 +29,7 @@ export class LayoutComponent {
     );
 
     logout() {
-      localStorage.removeItem("token")
+      sessionStorage.removeItem("token")
       this.router.navigate(["login"])
     }
 }

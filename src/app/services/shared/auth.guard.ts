@@ -1,12 +1,11 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthShared } from './auth-shared.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const auth = inject(AuthShared)
+  const token = sessionStorage.getItem('token')
 
-  if(auth.loggedUser.token) {
+  if(token) {
     console.log("we have token from authguard");
     
     return true;

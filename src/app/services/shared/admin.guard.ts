@@ -1,13 +1,17 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { AuthShared } from './auth-shared.service';
+import { jwtDecode } from 'jwt-decode'
+import { TokenDecode } from 'src/app/models/token.decode.model';
 
 export const adminGuard: CanActivateFn = (route, state) => {
-  const role = route.data.role;
   const router = inject(Router);
-  const auth = inject(AuthShared);
+  const token = sessionStorage.getItem('token') as any
+  const tokenDecode: TokenDecode = jwtDecode(token);  
 
-  if(auth.loggedUser.role === 'ROLE_ADMIN') {    
+  console.log(JSON.stringify(tokenDecode.userinfo));
+  
+
+  if(tokenDecode.userinfo.role === 'ROLE_ADMIN') {    
     return true;
   } else {
     router.navigate(['unauthorized']);

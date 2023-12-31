@@ -1,24 +1,21 @@
 import { HttpInterceptor, HttpHandler, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthShared } from './auth-shared.service';
 import { Observable, tap } from 'rxjs';
 
 @Injectable()
 export class ApiInterceptorService implements HttpInterceptor {
 
-  shared: AuthShared
-  constructor() {
-    this.shared = AuthShared.getInstance()    
-   }
 
    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    
+    const token = sessionStorage.getItem('token')
 
     console.log('Outgoing HTTP request', request);
     let authRequest : any;
-    if(this.shared.loggedUser){
+    if(token){
       authRequest = request.clone({
           setHeaders: {
-              'Authorization' : this.shared.loggedUser.token
+              'Authorization' : token
           }
       });
       return next.handle(authRequest).pipe(

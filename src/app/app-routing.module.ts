@@ -56,7 +56,7 @@ const routes: Routes = [
         component: UsersComponent,
         canActivate: [adminGuard],
         data: {
-          role: ['SUPER']
+          role: ['ROLE_ADMIN']
         }
       }
     ]
