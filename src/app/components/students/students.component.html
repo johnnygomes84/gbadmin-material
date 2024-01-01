@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card mat-elevation-z8">
                     <div class="card-header">
-                        Enter the new student information
+                        Student List
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -46,12 +46,12 @@
                                     <th mat-header-cell *matHeaderCellDef> Actions </th>
                                     <td mat-cell *matCellDef="let element">
                                         <a routerLink="/student-new/{{element.id}}">
-                                            <i class="material-icons">
+                                            <i class="material-icons update-icon">
                                                 edit
                                             </i>
                                         </a>
-                                        <a class="material-icons" (click)="deleteStudent(element)">
-                                            <i class="material-icons">
+                                        <a class="material-icons" routerLink="/confirm-delete/{{element.id}}/student">
+                                            <i class="material-icons delete-icon">
                                                 delete
                                             </i>
                                         </a>

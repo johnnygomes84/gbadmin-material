@@ -40,12 +40,12 @@
                 </a>
             </mat-list-item>
         </mat-nav-list>
-        <mat-nav-list class="nav-list admin-panel">
+        <mat-nav-list class="nav-list admin-panel" [disabled]="role !== 'ROLE_ADMIN'">
             <mat-list-item>
-                <a class="nav-link" routerLink="/users">
+                <a *ngIf="role === 'ROLE_ADMIN'" class="nav-link" routerLink="/users">
                     <i class="material-icons white-icon">
-                  admin_panel_settings
-              </i>
+                        admin_panel_settings
+                    </i>
                     <span class="white-icon">Users Control</span>
                 </a>
             </mat-list-item>

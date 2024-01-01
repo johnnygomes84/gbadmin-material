@@ -17,6 +17,7 @@ export class LayoutComponent {
   token: any = sessionStorage.getItem('token')
   tokenDecode: TokenDecode = jwtDecode(this.token)
   userInfo = this.tokenDecode.userinfo.fullName
+  role = this.tokenDecode.userinfo.role
   
 
    

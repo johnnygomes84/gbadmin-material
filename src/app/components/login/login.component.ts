@@ -45,7 +45,7 @@ export class LoginComponent {
   }
 
   private showMessage(message: string, isError: boolean = false) {    
-    this.snackBar.open(message, "close", {
+    this.snackBar.open(message, "X", {
       duration: 4000,
       verticalPosition: "top",
       horizontalPosition: "center",

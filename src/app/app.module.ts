@@ -37,6 +37,7 @@ import { UserNewComponent } from './components/user-new/user-new.component';
 import { ApiInterceptorService } from './services/shared/api-interceptor.service';
 import { StudentService } from './services/student.service';
 import { UserService } from './services/user.service';
+import { DeleteComponent } from './components/delete/delete.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { UserService } from './services/user.service';
     NotAuthorizedComponent,
     StudentNewComponent,
     UserNewComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

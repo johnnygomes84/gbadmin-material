@@ -12,6 +12,7 @@ import { UsersComponent } from './components/users/users.component';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { adminGuard } from './services/shared/admin.guard';
 import { StudentNewComponent } from './components/student-new/student-new.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 const routes: Routes = [
   { path: 'login',
@@ -54,6 +55,14 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+        canActivate: [adminGuard],
+        data: {
+          role: ['ROLE_ADMIN']
+        }
+      },
+      {
+        path: 'confirm-delete/:id/:type',
+        component: DeleteComponent,
         canActivate: [adminGuard],
         data: {
           role: ['ROLE_ADMIN']

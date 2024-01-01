@@ -25,3 +25,11 @@ body {
         --mdc-snackbar-supporting-text-color: #fff;
     }
 }
+
+.delete-icon {
+    color: #c82828;
+}
+
+.update-icon {
+    color: #343a40;
+}
