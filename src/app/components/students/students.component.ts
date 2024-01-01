@@ -3,7 +3,6 @@ import { Student } from 'src/app/models/student.model';
 import { StudentService } from 'src/app/services/student.service';
 import {MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -24,7 +23,7 @@ export class StudentsComponent implements OnInit {
   pageSize = 5
   length:number
 
-  constructor(private studentService: StudentService, private router: Router){}
+  constructor(private studentService: StudentService){}
 
 
   ngOnInit(): void {

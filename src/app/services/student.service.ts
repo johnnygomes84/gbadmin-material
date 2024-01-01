@@ -32,10 +32,6 @@ export class StudentService {
     return this.http.post<Student>(`${this.url_base}/new`, student)
   }
 
-  updateStudent(student: Student) {
-    return this.http.put(this.url_base, student)
-  }
-
   deleteUserById(id: string) {    
     return this.http.delete<void>(`${this.url_base}/delete/${id}`)
   }

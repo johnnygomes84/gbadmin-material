@@ -1,1 +1,71 @@
-<p>users works!</p>
+<mat-toolbar>
+    <span class="title">Students Information</span>
+</mat-toolbar>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 btn-new">
+                <button type='submit' routerLink="/student-new" class="form-control btn btn-red">New Student</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mat-elevation-z8">
+                    <div class="card-header">
+                        Enter the new student information
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table mat-table [dataSource]="dataSource">
+
+                                <ng-container matColumnDef="studentNumber">
+                                    <th mat-header-cell *matHeaderCellDef> Number </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.studentNumber}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="lastName">
+                                    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="rank">
+                                    <th mat-header-cell *matHeaderCellDef> Rank </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="degree">
+                                    <th mat-header-cell *matHeaderCellDef> Degree </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="actions">
+                                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <a routerLink="/student-new/{{element.id}}">
+                                            <i class="material-icons">
+                                                edit
+                                            </i>
+                                        </a>
+                                        <a class="material-icons" (click)="deleteStudent(element)">
+                                            <i class="material-icons">
+                                                delete
+                                            </i>
+                                        </a>
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+
+                            <mat-paginator #paginator [length]="length" (page)="pageChangeEvent($event)" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons aria-label="Select page of periodic elements">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
