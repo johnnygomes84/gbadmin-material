@@ -38,6 +38,8 @@ import { ApiInterceptorService } from './services/shared/api-interceptor.service
 import { StudentService } from './services/student.service';
 import { UserService } from './services/user.service';
 import { DeleteComponent } from './components/delete/delete.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 @NgModule({
@@ -80,6 +82,7 @@ import { DeleteComponent } from './components/delete/delete.component';
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatSlideToggleModule
   ],
   providers: [
     StudentService,

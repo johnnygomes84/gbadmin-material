@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   
   pageEvent: PageEvent;
   
-  displayedColumns: string[] = ['email', 'name', 'lastName','role', 'actions'];
+  displayedColumns: string[] = ['email', 'name', 'lastName','role', 'firstLogin', 'actions'];
   
   dataSource = new MatTableDataSource<User>([]);  
   pageIndex = 0
