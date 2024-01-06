@@ -4,6 +4,7 @@ import { AuthLogin } from '../models/auth-login.model';
 import { AuthResponse } from '../models/auth-response.model';
 import { PageResponse } from '../models/page.response.model';
 import { User } from '../models/user.model';
+import { ResetPassDto } from '../models/enums/reset-pass.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class UserService {
 
   deleteUserById(id: string) {    
     return this.http.delete<void>(`${this.url_base}/api/users/delete/${id}`)
+  }
+
+  resetPassword(resetDto: ResetPassDto) {
+    return this.http.put<boolean>(`${this.url_base}/api/users/password/reset`, resetDto)
   }
 
 }

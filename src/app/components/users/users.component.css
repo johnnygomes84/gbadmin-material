@@ -28,3 +28,7 @@ table {
 .container {
     margin-bottom: 90px;
 }
+
+.lock-icon {
+    color: #dc3545;
+}

@@ -39,6 +39,7 @@ import { StudentService } from './services/student.service';
 import { UserService } from './services/user.service';
 import { DeleteComponent } from './components/delete/delete.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 
@@ -57,6 +58,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     StudentNewComponent,
     UserNewComponent,
     DeleteComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

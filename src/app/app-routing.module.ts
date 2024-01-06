@@ -14,6 +14,7 @@ import { adminGuard } from './services/shared/admin.guard';
 import { StudentNewComponent } from './components/student-new/student-new.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { UserNewComponent } from './components/user-new/user-new.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login',
@@ -80,6 +81,14 @@ const routes: Routes = [
       {
         path: 'user-new/:id' ,
         component: UserNewComponent,
+        canActivate: [adminGuard],
+        data: {
+          role: ['ROLE_ADMIN']
+        }
+      },
+      {
+        path: 'reset-password/:id' ,
+        component: ResetPasswordComponent,
         canActivate: [adminGuard],
         data: {
           role: ['ROLE_ADMIN']

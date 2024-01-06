@@ -15,6 +15,7 @@ export class UserNewComponent implements OnInit {
 
   userForm!: FormGroup;
   id: string
+  userRequest: User
 
   constructor(
     private userService: UserService,
@@ -40,18 +41,21 @@ export class UserNewComponent implements OnInit {
     if(this.id) {
       this.userService.getById(this.id)
         .subscribe(data => {
+          this.userRequest = data
           this.userForm.patchValue(data)
+          this.disableIfUpdate()
         })
     }
     
   }
 
   onSubmit(){    
-
-    this.userService.createOrUpdateUser(this.userForm.value)
+    this.userRequest = this.userForm.value
+    this.userRequest.id = this.id
+    this.userService.createOrUpdateUser(this.userRequest)
     .subscribe({
       next: (data) => { 
-        this.showMessage(`Success, user ${data.name} created!`) 
+        this.showMessage(`Success!`) 
         this.router.navigate(["/users"])
       },
       error: (err) => { 
@@ -72,6 +76,13 @@ export class UserNewComponent implements OnInit {
       horizontalPosition: "center",
       panelClass: isError ? ['snack-error'] : ['snack-success']
     })
+  }
+
+  disableIfUpdate() {
+    if (this.id && this.userForm.value.firstLogin === false) {
+      this.userForm.controls["firstLogin"].disable()
+      this.userForm.controls["password"].disable()
+    }
   }
 
 }

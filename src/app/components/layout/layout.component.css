@@ -107,6 +107,7 @@ mat-list-item:hover {
 }
 
 .gblogo {
+    margin-right: 15px;
     max-height: 45px;
     border-radius: 50%;
 }
