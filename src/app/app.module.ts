@@ -40,6 +40,7 @@ import { UserService } from './services/user.service';
 import { DeleteComponent } from './components/delete/delete.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { FirstLoginComponent } from './components/first-login/first-login.component';
 
 
 
@@ -59,6 +60,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     UserNewComponent,
     DeleteComponent,
     ResetPasswordComponent,
+    FirstLoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,44 @@
+<section class="ftco-section mat-elevation-z10">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="wrap d-md-flex">
+                    <div class="img">
+                        <img class="img-center" src="../../../assets/img/footer-bg.png" alt="logo">
+                    </div>
+                    <div class="login-wrap p-4 p-md-5">
+                        <div class="d-flex">
+                            <div class="w-100">
+                                <h3 class="mb-4">Reset Password</h3>
+                            </div>
+                        </div>
+                        <form [formGroup]='resetPassForm' (ngSubmit)='submit()' autocomplete='off' class="signin-form">
+                            <div class="form-group mb-3">
+                                <h3>Hello Joao</h3>
+                            </div>
+                            <div class="form-group mb-3">
+                                <mat-form-field class="login-field">
+                                    <mat-label> Password: </mat-label>
+                                    <input matInput type='password' formControlName='password'>
+                                    <mat-error *ngIf="resetPassForm.controls['password'].hasError('required')">Please provide a valid password!</mat-error>
+                                    <mat-error *ngIf="resetPassForm.controls['password'].hasError('minlength')">Password must have more than 6 characters!</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group mb-3">
+                                <mat-form-field class="login-field">
+                                    <mat-label> Confirm Password: </mat-label>
+                                    <input matInput type='password' formControlName='confirmPass'>
+                                    <mat-error *ngIf="resetPassForm.controls['confirmPass'].hasError('required')">Confirm Password is required!</mat-error>
+                                    <mat-error *ngIf="resetPassForm.controls['confirmPass'].hasError('passwordMismatch')">Password do not match!</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <button type='submit' [disabled]='!resetPassForm.valid' class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

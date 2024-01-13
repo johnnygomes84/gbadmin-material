@@ -15,6 +15,7 @@ import { StudentNewComponent } from './components/student-new/student-new.compon
 import { DeleteComponent } from './components/delete/delete.component';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { FirstLoginComponent } from './components/first-login/first-login.component';
 
 const routes: Routes = [
   { path: 'login',
@@ -24,7 +25,11 @@ const routes: Routes = [
   { path: 'unauthorized',
   component: NotAuthorizedComponent,
   canActivate: [authGuard]
-},
+  },
+  { path: 'first-login/:id',
+  component: FirstLoginComponent,
+  //canActivate: [authGuard]
+  },
   { path: '',
     component: LayoutComponent,
     canActivate: [authGuard],
