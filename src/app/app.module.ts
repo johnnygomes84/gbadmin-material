@@ -41,6 +41,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FirstLoginComponent } from './components/first-login/first-login.component';
+import { TuitionNewComponent } from './components/tuition-new/tuition-new.component';
 
 
 
@@ -61,6 +62,7 @@ import { FirstLoginComponent } from './components/first-login/first-login.compon
     DeleteComponent,
     ResetPasswordComponent,
     FirstLoginComponent,
+    TuitionNewComponent,
   ],
   imports: [
     BrowserModule,

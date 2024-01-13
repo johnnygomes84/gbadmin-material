@@ -37,7 +37,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resetPass() {   
-    const resetDto: ResetPassDto = {id: this.id, newPass: this.defaultPass}
+    const resetDto: ResetPassDto = {id: this.id, newPass: this.defaultPass, userRequest: "ADMIN"}
 
 
     this.userService.resetPassword(resetDto).subscribe({

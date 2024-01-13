@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from 'src/app/models/student.model';
+import { Tuition } from 'src/app/models/tuition.model';
 import { User } from 'src/app/models/user.model';
 import { StudentService } from 'src/app/services/student.service';
+import { TuitionService } from 'src/app/services/tuition.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,12 +18,14 @@ export class DeleteComponent implements OnInit {
   type: string
   deleteUserData?: User
   deleteStudentData?: Student
+  deleteTuition?: Tuition
 
   constructor(
     private activeRouter: ActivatedRoute, 
     private router: Router,
     private userService: UserService,
-    private studentService: StudentService){}
+    private studentService: StudentService,
+    private tuitionService: TuitionService){}
 
   ngOnInit(): void {
     this.id = this.activeRouter.snapshot.params['id'];
@@ -30,7 +34,12 @@ export class DeleteComponent implements OnInit {
     if (this.type === "user") {
       this.getUserById()
 
-    } else if(this.type === "student") {
+    } 
+    else if(this.type === "student") {
+      this.getStudentById()
+
+    }
+    else if(this.type === "tuition") {
       this.getStudentById()
 
     }
@@ -63,6 +72,10 @@ export class DeleteComponent implements OnInit {
     .subscribe({
       next: (data)=> this.deleteUserData = data
     })
+  }
+
+  getTuitionById() {
+    
   }
 
   cancel() {

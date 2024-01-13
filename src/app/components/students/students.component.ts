@@ -40,17 +40,6 @@ export class StudentsComponent implements OnInit {
     })
   }
 
-  deleteStudent(student: Student) {
-    if(confirm(`Are you sure you want to delete student: ${student.name} ${student.lastName}?`)) {
-      if (student.id) {        
-        this.studentService.deleteUserById(student.id).subscribe(()=> {
-          this.getStudents()          
-        }) 
-      }
-    }
-
-  }
-
   pageChangeEvent(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;

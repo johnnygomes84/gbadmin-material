@@ -8,9 +8,6 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const token = sessionStorage.getItem('token') as any
   const tokenDecode: TokenDecode = jwtDecode(token);  
 
-  console.log(JSON.stringify(tokenDecode.userinfo));
-  
-
   if(tokenDecode.userinfo.role === 'ROLE_ADMIN') {    
     return true;
   } else {

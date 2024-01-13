@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ResetPassDto } from 'src/app/models/enums/reset-pass.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -30,8 +31,12 @@ export class FirstLoginComponent {
   }
 
   submit() {
-    //this.userService.resetPassword()
-    console.log("You changed password");
+    const passDto: ResetPassDto = {id: this.id, newPass: this.resetPassForm.controls['password'].value, userRequest: "SUPPORT"}
+    this.userService.resetPassword(passDto).subscribe({
+      next: data => this.router.navigate(["/"])
+    })
+    sessionStorage.removeItem("token")
+    this.router.navigate(["/login"])
     
   }
 

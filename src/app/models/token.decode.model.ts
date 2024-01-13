@@ -4,7 +4,9 @@ export interface TokenDecode {
         role: string,
         exp: number
         userinfo: {
+                userId: string,
                 role: string,
-                fullName: string
+                fullName: string,
+                firstLogin: boolean
         }
 }

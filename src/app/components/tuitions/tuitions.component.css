@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+}
+
+.card-header {
+    padding: 15px;
+    background-color: #dc3545!important;
+    color: #FFF!important;
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.btn-new {
+    margin-bottom: 10px;
+}
+
+.btn-red {
+    background-color: #dc3545;
+    color: #FFF;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.container {
+    margin-bottom: 90px;
+}

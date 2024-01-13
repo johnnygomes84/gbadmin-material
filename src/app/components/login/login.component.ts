@@ -3,6 +3,8 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { jwtDecode } from 'jwt-decode'
+import { TokenDecode } from 'src/app/models/token.decode.model';
 
 
 
@@ -13,7 +15,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 })
 export class LoginComponent {
   
-  loginForm: FormGroup;
+  loginForm: FormGroup
+  tokenDecode: TokenDecode
 
 
   constructor(private router: Router,
@@ -35,8 +38,18 @@ export class LoginComponent {
     this.userService.login(this.loginForm.value).subscribe({
       next: (data) => {
         sessionStorage.setItem('token', data.token)
-        this.showMessage(`Success!`) 
-        this.router.navigate([""])
+        this.tokenDecode = jwtDecode(data.token)
+        console.log(this.tokenDecode);
+        
+
+        if (this.tokenDecode.userinfo.firstLogin) {
+          this.router.navigate([`first-login/${this.tokenDecode.userinfo.userId}`])
+        }
+        else {
+          this.showMessage(`Success!`) 
+          this.router.navigate([""])
+        }
+
       },
       error: (err) => {
         this.showMessage(`Login fail, please check creadentials!`, true)

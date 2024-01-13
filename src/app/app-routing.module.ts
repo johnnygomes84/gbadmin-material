@@ -16,6 +16,9 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FirstLoginComponent } from './components/first-login/first-login.component';
+import { firstLoginGuard } from './services/shared/first-login.guard';
+import { TuitionNewComponent } from './components/tuition-new/tuition-new.component';
+import { TuitionsComponent } from './components/tuitions/tuitions.component';
 
 const routes: Routes = [
   { path: 'login',
@@ -28,7 +31,7 @@ const routes: Routes = [
   },
   { path: 'first-login/:id',
   component: FirstLoginComponent,
-  //canActivate: [authGuard]
+  canActivate: [firstLoginGuard]
   },
   { path: '',
     component: LayoutComponent,
@@ -58,6 +61,18 @@ const routes: Routes = [
       {
         path: 'student-new/:id' ,
         component: StudentNewComponent
+      },
+      {
+        path: 'tuitions' ,
+        component: TuitionsComponent
+      },
+      {
+        path: 'tuition-new',
+        component: TuitionNewComponent
+      },
+      {
+        path: 'tuition-new/:id' ,
+        component: TuitionNewComponent
       },
       {
         path: 'users',
