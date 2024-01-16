@@ -42,6 +42,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FirstLoginComponent } from './components/first-login/first-login.component';
 import { TuitionNewComponent } from './components/tuition-new/tuition-new.component';
+import { CurrencyMaskModule, CURRENCY_MASK_CONFIG, CurrencyMaskConfig } from "ng2-currency-mask";
+import { CustomCurrencyMaskConfig } from './components/tuition-new/mask.config';
 
 
 
@@ -88,13 +90,17 @@ import { TuitionNewComponent } from './components/tuition-new/tuition-new.compon
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    CurrencyMaskModule
   ],
   providers: [
     StudentService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true
+    },
+    { 
+      provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig
     }
  
   ],

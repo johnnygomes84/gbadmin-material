@@ -1,0 +1,22 @@
+.title {
+    margin-left: 20px;
+}
+
+.card-header {
+    padding: 15px;
+    background-color: #dc3545!important;
+    color: #FFF!important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.container {
+    margin-top: 20px;
+}

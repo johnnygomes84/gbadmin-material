@@ -9,7 +9,7 @@ import { Tuition } from 'src/app/models/tuition.model';
   templateUrl: './tuitions.component.html',
   styleUrls: ['./tuitions.component.css']
 })
-export class TuitionsComponent {
+export class TuitionsComponent implements OnInit {
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
