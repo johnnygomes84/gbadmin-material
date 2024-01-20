@@ -10,7 +10,6 @@ export class ApiInterceptorService implements HttpInterceptor {
     
     const token = sessionStorage.getItem('token')
 
-    console.log('Outgoing HTTP request', request);
     let authRequest : any;
     if(token){
       authRequest = request.clone({
@@ -20,7 +19,6 @@ export class ApiInterceptorService implements HttpInterceptor {
       });
       return next.handle(authRequest).pipe(
         tap((event: HttpEvent<any>) => {
-          console.log('Incoming HTTP response', event);
         })
       );    
   }else {

@@ -51,6 +51,27 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body" *ngIf="type == 'tuition'">
+                    <h2 class="card-title">Are you sure you want to delete this tuition?</h2>
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label">Student Number:</label>
+                        <div class="col-md-8">
+                            <input type="text" readonly class="form-control-plaintext" id="name" value="{{deleteTuitionData?.studentNumber}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastName" class="col-md-4 col-form-label">Reference Month:</label>
+                        <div class="col-md-8">
+                            <input type="text" readonly class="form-control-plaintext" id="lastName" value="{{deleteTuitionData?.referenceMonth}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="status" class="col-md-4 col-form-label">Amount:</label>
+                        <div class="col-md-8">
+                            <input type="text" readonly class="form-control-plaintext" id="profile" value="{{deleteTuitionData?.amount | currency: 'EUR'}}">
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body actions">
                     <a (click)="deleteRegister()" class="btn btn-danger">Delete</a>
                     <a (click)="cancel()" class="btn btn-primary">Cancel</a>

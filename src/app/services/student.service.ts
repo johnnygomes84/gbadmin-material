@@ -36,4 +36,8 @@ export class StudentService {
     return this.http.delete<void>(`${this.url_base}/delete/${id}`)
   }
 
+  getByStudentNumber(studentNumber: number) {
+    return this.http.get<Student>(`${this.url_base}/studentNumber/${studentNumber}`)
+  }
+
 }

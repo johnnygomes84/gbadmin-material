@@ -15,7 +15,7 @@
                                 <div class="form-group col-md-4">
                                     <mat-form-field class="full-width">
                                         <mat-label>Student Number</mat-label>
-                                        <input matInput type="text" formControlName="studentNumber">
+                                        <input matInput type="text" formControlName="studentNumber" (keydown.Tab)="onTabPress($event)">
                                         <mat-error *ngIf="tuitionForm.hasError">Please provide the student number!</mat-error>
                                     </mat-form-field>
                                 </div>
@@ -24,13 +24,13 @@
                                 <div class="form-group col-md-6">
                                     <mat-form-field class="full-width">
                                         <mat-label>Name</mat-label>
-                                        <input matInput type="text" formControlName="name">
+                                        <input matInput type="text" formControlName="name" value="{{student?.name}}">
                                     </mat-form-field>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <mat-form-field class="full-width">
                                         <mat-label>Last Name</mat-label>
-                                        <input matInput type="text" formControlName="lastName">
+                                        <input matInput type="text" formControlName="lastName" value="{{student?.lastName}}">
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -38,12 +38,8 @@
                                 <div class="form-group col-md-6">
                                     <mat-form-field class="full-width">
                                         <mat-label>Reference Month</mat-label>
-                                        <mat-select formControlName="refMonth">
-                                            <mat-option [value]=0>0</mat-option>
-                                            <mat-option [value]=1>I</mat-option>
-                                            <mat-option [value]=2>II</mat-option>
-                                            <mat-option [value]=3>III</mat-option>
-                                            <mat-option [value]=4>IIII</mat-option>
+                                        <mat-select formControlName="referenceMonth">
+                                            <mat-option value="{{month}}" *ngFor="let month of months">{{month}}</mat-option>
                                         </mat-select>
                                         <mat-error *ngIf="tuitionForm.hasError">Ref Month is required!</mat-error>
                                     </mat-form-field>

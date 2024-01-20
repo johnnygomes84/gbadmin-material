@@ -1,14 +1,14 @@
 export enum  MonthsEnum {
-    JAN,
-    FEB,
-    MAR,
-    APR,
-    MAY,
-    JUN,
-    JUL,
-    AGO,
-    SEP,
-    OCT,
-    NOV,
-    DEC
+    JAN = "JAN",
+    FEB = "FEB",
+    MAR = "MAR",
+    APR = "APR",
+    MAY = "MAY",
+    JUN = "JUN",
+    JUL = "JUL",
+    AUG = "AUG",
+    SEP = "SEP",
+    OCT = "OCT",
+    NOV = "NOV",
+    DEC = "DEC"
 }

@@ -18,7 +18,7 @@ export class DeleteComponent implements OnInit {
   type: string
   deleteUserData?: User
   deleteStudentData?: Student
-  deleteTuition?: Tuition
+  deleteTuitionData?: Tuition
 
   constructor(
     private activeRouter: ActivatedRoute, 
@@ -40,7 +40,7 @@ export class DeleteComponent implements OnInit {
 
     }
     else if(this.type === "tuition") {
-      this.getStudentById()
+      this.getTuitionById()
 
     }
     
@@ -55,6 +55,11 @@ export class DeleteComponent implements OnInit {
     else if (this.type === "student") {
       this.studentService.deleteUserById(this.id).subscribe(()=> {
         this.router.navigate(["/students"])
+      })
+    }
+    else if (this.type === "tuition") {
+      this.tuitionService.deleteTuitionById(this.id).subscribe(()=> {
+        this.router.navigate(["/tuitions"])
       })
     }
 
@@ -75,7 +80,10 @@ export class DeleteComponent implements OnInit {
   }
 
   getTuitionById() {
-    
+    this.tuitionService.getById(this.id)
+    .subscribe({
+      next: (data)=> this.deleteTuitionData = data
+    })    
   }
 
   cancel() {
@@ -84,6 +92,9 @@ export class DeleteComponent implements OnInit {
     }
     else if (this.type === "student") {
       this.router.navigate(["/students"])
+    }
+    else if (this.type === "tuition") {
+      this.router.navigate(["/tuitions"])
     }
   }
 

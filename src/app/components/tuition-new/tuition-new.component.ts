@@ -5,6 +5,9 @@ import { RankEnum } from 'src/app/models/enums/rankEnum.model';
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Tuition } from 'src/app/models/tuition.model';
 import { TuitionService } from 'src/app/services/tuition.service';
+import { MonthsEnum } from 'src/app/models/enums/monthsEnum.model';
+import { StudentService } from 'src/app/services/student.service';
+import { Student } from 'src/app/models/student.model';
 
 @Component({
   selector: 'app-tuition-new',
@@ -14,19 +17,19 @@ import { TuitionService } from 'src/app/services/tuition.service';
 export class TuitionNewComponent {
 
   tuitionForm!: FormGroup;
-  ranks = Object.values(RankEnum)
   id: string
-  studentNumber?: number
+  studentNumber: number
   tuition: Tuition
-
-  moneyPattern = "^[a-z0-9_]{8,15}€"
+  months = Object.values(MonthsEnum)
+  student?: Student
 
   constructor(
     private tuitionService: TuitionService, 
     private activeRouter: ActivatedRoute, 
     private router: Router,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private studentService: StudentService
   ){}
 
   ngOnInit(): void {
@@ -36,8 +39,8 @@ export class TuitionNewComponent {
       studentNumber: ['', Validators.required],
       name: null,
       lastName: null,
-      refMonth: ['', Validators.required],
-      amount: ['', Validators.required, Validators.pattern(this.moneyPattern)]
+      referenceMonth: ['', Validators.required],
+      amount: ['', Validators.required]
     });
 
     this.tuitionForm.controls['name'].disable()
@@ -48,7 +51,15 @@ export class TuitionNewComponent {
         .subscribe(data => {
           this.tuition = data
           this.tuitionForm.patchValue(data)
+
+          this.studentNumber = this.tuitionForm.controls["studentNumber"]?.value
+      
+          this.studentService.getByStudentNumber(this.studentNumber).subscribe({
+            next: data => this.student = data,
+            error: err => this.showMessage(`Error, student not found with number ${this.studentNumber}!`, true)
+          })
         })
+
     }
   }
 
@@ -58,7 +69,7 @@ export class TuitionNewComponent {
       this.tuition.id = this.id
     }
 
-    this.tuitionService.createOrUpdateTuition(this.tuition)
+    this.tuitionService.createOrUpdateTuition(this.tuition)    
     .subscribe({
       next: (data) => { 
         this.showMessage(`Success, tuition created!`) 
@@ -83,5 +94,13 @@ export class TuitionNewComponent {
       panelClass: isError ? ['snack-error'] : ['snack-success']
     })
   }
+
+  onTabPress(event: any) {
+    const currentValue = event.target.value;
+    this.studentService.getByStudentNumber(currentValue).subscribe({
+      next: data => this.student = data,
+      error: err => this.showMessage(`Error, student not found with number ${currentValue}!`, true)
+    })    
+   }
 
 }
