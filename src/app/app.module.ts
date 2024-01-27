@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -44,6 +43,7 @@ import { FirstLoginComponent } from './components/first-login/first-login.compon
 import { TuitionNewComponent } from './components/tuition-new/tuition-new.component';
 import { CurrencyMaskModule, CURRENCY_MASK_CONFIG, CurrencyMaskConfig } from "ng2-currency-mask";
 import { CustomCurrencyMaskConfig } from './components/tuition-new/mask.config';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -51,7 +51,6 @@ import { CustomCurrencyMaskConfig } from './components/tuition-new/mask.config';
   declarations: [
     AppComponent,
     LayoutComponent,
-    DashboardComponent,
     NotFoundComponent,
     LoginComponent,
     StudentsComponent,
@@ -65,6 +64,7 @@ import { CustomCurrencyMaskConfig } from './components/tuition-new/mask.config';
     ResetPasswordComponent,
     FirstLoginComponent,
     TuitionNewComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +91,7 @@ import { CustomCurrencyMaskConfig } from './components/tuition-new/mask.config';
     MatSelectModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
   ],
   providers: [
     StudentService,

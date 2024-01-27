@@ -1,24 +1,125 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<mat-toolbar>
+    <span class="title">Dashboard</span>
+</mat-toolbar>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <!-- small card -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>60</h3>
+
+                        <p>Active Students</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-graduation-cap"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>40</h3>
+
+                        <p>Adult Class</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-person-half-dress"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>20</h3>
+
+                        <p>Kids Class</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <!-- small card -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>10</h3>
+
+                        <p>Inactive Students</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-slash"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 col-6">
+                <!-- small card -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>50</h3>
+
+                        <p>Tuition Paid Current Month</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <a href="#" class="small-box-footer-black">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-6">
+                <!-- small card -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>8</h3>
+
+                        <p>Tuition Open Current Month</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-sack-xmark"></i>
+                    </div>
+                    <a href="#" class="small-box-footer-black">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>2</h3>
+
+                            <p>Tuition Open Longer</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-money-bill-trend-up"></i>
+                        </div>
+                        <a href="#" class="small-box-footer-black">
+                          More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
