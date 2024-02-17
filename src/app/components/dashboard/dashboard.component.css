@@ -1,10 +1,11 @@
 .container {
     margin-top: 20px;
+    margin-bottom: 75px;
 }
 
 .small-box {
     border-radius: 0.25rem;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
     display: block;
     margin-bottom: 20px;
     position: relative;
@@ -220,4 +221,35 @@ a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
     background-color: #1e7e34 !important;
+}
+
+.gb-belt-blue {
+    background: url('../../../assets/img/BJJ_Blue_Belt.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: cover;
+    height: 35px;
+    width: 90px;
+    top: 40px !important;
+}
+
+.gb2 {
+    background-color: #621083 !important;
+}
+
+.gb1 {
+    background-color: #2d5de2 !important;
+}
+
+.mini {
+    background-color: #2da0e2 !important;
+}
+
+.pc1 {
+    background-color: #ffee00 !important;
+    color: black !important;
+}
+
+.pc2 {
+    background-color: #e2722d !important;
 }

@@ -3,12 +3,12 @@
 </mat-toolbar>
 <div class="container">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-6">
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 col-12">
                 <!-- small card -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>60</h3>
+                        <h3>{{dashboard?.dashStudent?.studentActive}}</h3>
 
                         <p>Active Students</p>
                     </div>
@@ -20,43 +20,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
-                <!-- small card -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>40</h3>
-
-                        <p>Adult Class</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-person-half-dress"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">
-                      More info <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <!-- small card -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>20</h3>
-
-                        <p>Kids Class</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">
-                      More info <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
+            <div class="col-md-4 col-12">
                 <!-- small card -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>10</h3>
+                        <h3>{{dashboard?.dashStudent?.studentInactive}}</h3>
 
                         <p>Inactive Students</p>
                     </div>
@@ -68,13 +36,128 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-4 col-12">
+                <!-- small card -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentCanceled}}</h3>
+
+                        <p>Canceled Students</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-slash"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="row justify-content-md-center">
-            <div class="col-md-4 col-6">
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info gb1">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentGB1}}</h3>
+
+                        <p>Gb1</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info gb2">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentGB2}}</h3>
+
+                        <p>GB2</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info mini">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentMini}}</h3>
+
+                        <p>Mini</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                              More info <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-warning pc1">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentPc1}}</h3>
+
+                        <p>PC1</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer-black">
+                        More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-info pc2">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentPc2}}</h3>
+
+                        <p>PC2</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <!-- small card -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashStudent?.studentJuniors}}</h3>
+
+                        <p>Juniores</p>
+                    </div>
+                    <div class="icon">
+                        <i class="gb-belt-blue"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 col-12">
                 <!-- small card -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>50</h3>
+                        <h3>{{dashboard?.dashTuition?.tuitionPaid}}</h3>
 
                         <p>Tuition Paid Current Month</p>
                     </div>
@@ -86,11 +169,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-6">
+            <div class="col-md-4 col-12">
                 <!-- small card -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>8</h3>
+                        <h3>{{dashboard?.dashTuition?.tuitionOpen}}</h3>
 
                         <p>Tuition Open Current Month</p>
                     </div>
@@ -102,22 +185,20 @@
                     </a>
                 </div>
             </div>
-            <div class="row justify-content-md-center">
-                <div class="col-md-6 col-6">
-                    <!-- small card -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>2</h3>
+            <div class="col-md-4 col-12">
+                <!-- small card -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{dashboard?.dashTuition?.tuitionOpenLonger}}</h3>
 
-                            <p>Tuition Open Longer</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-money-bill-trend-up"></i>
-                        </div>
-                        <a href="#" class="small-box-footer-black">
-                          More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <p>Tuition Open Longer</p>
                     </div>
+                    <div class="icon">
+                        <i class="fas fa-money-bill-trend-up"></i>
+                    </div>
+                    <a href="#" class="small-box-footer-black">
+                      More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
