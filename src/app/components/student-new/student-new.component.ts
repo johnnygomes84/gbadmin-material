@@ -37,7 +37,8 @@ export class StudentNewComponent implements OnInit {
       rank: ['', Validators.required],
       degree: ['', Validators.required],
       classType: ['', Validators.required],
-      status: ['', Validators.required]
+      status: ['', Validators.required],
+      email: ['', Validators.required]
     });
 
     if(this.id) {
